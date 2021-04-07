@@ -1,20 +1,17 @@
-import {
-  deleteEvent,
-  doneEvent,
-  filtering,
-  inputEvent
-} from './events'
+import { deleteEvent, doneEvent, filtering, inputEvent } from './events'
 
 import './sass/default.scss'
 
-document.querySelector('#input').addEventListener('submit', (e) => {
+document.querySelector('#input-form').addEventListener('submit', (e) => {
   e.preventDefault()
 
-  const value = e.currentTarget.querySelector('input').value
-  const li = inputEvent(value)
+  const newTodo = document.querySelector('#new-todo')
 
+  const li = inputEvent(newTodo.value)
   li.addEventListener('click', () => doneEvent(li))
   li.addEventListener('dblclick', () => deleteEvent(li))
+
+  newTodo.value = ''
 })
 
 document
