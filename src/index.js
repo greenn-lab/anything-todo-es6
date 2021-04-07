@@ -1,10 +1,26 @@
-import face from './images/favicon-32x32.png'
+import {
+  deleteEvent,
+  doneEvent,
+  filtering,
+  inputEvent
+} from './events'
 
 import './sass/default.scss'
 
-const faceImage = document.createElement('img')
-faceImage.src = face
+document.querySelector('#input').addEventListener('submit', (e) => {
+  e.preventDefault()
 
-document.body.append(faceImage)
+  const value = e.currentTarget.querySelector('input').value
+  const li = inputEvent(value)
 
-document.write(`test check`)
+  li.addEventListener('click', () => doneEvent(li))
+  li.addEventListener('dblclick', () => deleteEvent(li))
+})
+
+document
+  .querySelector('#hidden-done')
+  .addEventListener('click', () => filtering(true))
+
+document
+  .querySelector('#hidden-undone')
+  .addEventListener('click', () => filtering(false))

@@ -1,7 +1,9 @@
-body {
-  background-color: rgba(200, 200, 200, .2);
+#list {
+  .done {
+    text-decoration: line-through;
+  }
 
-  h1 {
-    color: #369;
+  .hidden {
+    display: none;
   }
 }
