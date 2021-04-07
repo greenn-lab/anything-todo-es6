@@ -1,4 +1,10 @@
-import { deleteEvent, doneEvent, filtering, inputEvent } from './events'
+import {
+  deleteEvent,
+  doneEvent,
+  filtering,
+  inputEvent,
+  resetFilter
+} from './events'
 
 import './sass/default.scss'
 
@@ -21,3 +27,7 @@ document
 document
   .querySelector('#hidden-undone')
   .addEventListener('click', () => filtering(false))
+
+document
+  .querySelector('#hidden-reset')
+  .addEventListener('click', () => resetFilter())

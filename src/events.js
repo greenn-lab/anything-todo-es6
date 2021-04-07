@@ -32,3 +32,7 @@ export const filtering = (hiddenDone) => {
     }
   })
 }
+
+export const resetFilter = () => {
+  list.querySelectorAll('.hidden').forEach((i) => i.classList.remove('hidden'))
+}
